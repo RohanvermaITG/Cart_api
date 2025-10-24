@@ -1,6 +1,6 @@
 import cartmodule from "../model/cartmodel.js";
 import mongoose from "mongoose";
-
+//all items in cart 
 export const getCartItems = async (req, res) => {
   try {
     const items = await Cart.find();
@@ -9,6 +9,7 @@ export const getCartItems = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+//add new items in Cart
 export const addcartiitems = async (req, res, next) => {
   console.log("addcartitems", req.body);
 
@@ -24,6 +25,7 @@ export const addcartiitems = async (req, res, next) => {
       .json({ message: "Error saving data", error: error.message });
   }
 };
+// remove product from cart 
 export const removeProductFromCart = async (req, res, next) => {
   try {
     const deletedItem = await cartmodule.findByIdAndDelete(req.body._id);

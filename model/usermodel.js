@@ -6,10 +6,10 @@ const createNewUser = new mongoose.Schema({
     type: String,
     default: uuidv4,
   },
-  Name: String,
-  Email: String,
-  Phone: Number,
-  Password: String,
+  Name: {type : String},
+  Email: {type : String},
+  Phone: {type : String},
+  Password: {type : String},
 });
 const userschma = mongoose.model("webUsers", createNewUser);
 export default  userschma;
